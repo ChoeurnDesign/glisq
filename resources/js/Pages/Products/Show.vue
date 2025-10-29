@@ -13,7 +13,7 @@ const props = defineProps({
 const page = usePage()
 const user = computed(() => page.props?.auth?.user || null)
 
-// Build safe image URL
+// ✅ Build safe image URL
 const imageUrl = computed(() => {
   const p = props.product?.image_path || ''
   if (!p) return ''
@@ -21,7 +21,7 @@ const imageUrl = computed(() => {
   return `/storage/${p}`
 })
 
-// Add to cart
+// 🛒 Add to cart
 const adding = ref(false)
 function addToCart() {
   if (!props.product?.id) return
@@ -49,27 +49,36 @@ function addToCart() {
     <section class="py-16 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14">
       <!-- LEFT SIDE -->
       <div>
+        <!-- Product Image -->
         <div
           class="aspect-square rounded-3xl bg-gray-100 overflow-hidden shadow-md bg-cover bg-center"
           :style="imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}"
         ></div>
 
-        <!-- Add to Cart Section (mobile only) -->
-        <div class="mt-6 flex flex-wrap gap-4 justify-start border-t border-gray-200 pt-4 lg:hidden">
-          <button
-            @click="addToCart"
-            :disabled="adding"
-            class="px-6 py-2.5 bg-[#c6a664] text-white rounded-full shadow hover:bg-[#b49755] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
-          >
-            {{ adding ? 'Adding…' : 'Add to Cart' }}
-          </button>
+        <!-- Mobile Add to Cart (with Price + Buttons in one line) -->
+        <div
+          class="mt-6 flex flex-wrap items-center justify-between border-t border-gray-200 pt-4 lg:hidden"
+        >
+          <p class="text-2xl font-semibold text-gray-900">
+            ${{ Number(props.product?.price || 0).toFixed(2) }}
+          </p>
 
-          <a
-            href="/products"
-            class="px-6 py-2.5 border border-gray-400 rounded-full hover:bg-gray-100 transition-all duration-300"
-          >
-            Back to Products
-          </a>
+          <div class="flex gap-3 mt-3 sm:mt-0">
+            <button
+              @click="addToCart"
+              :disabled="adding"
+              class="px-6 py-2.5 bg-[#c6a664] text-white rounded-full shadow hover:bg-[#b49755] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
+            >
+              {{ adding ? 'Adding…' : 'Add to Cart' }}
+            </button>
+
+            <a
+              href="/products"
+              class="px-6 py-2.5 border border-gray-400 rounded-full hover:bg-gray-100 transition-all duration-300"
+            >
+              Back to Products
+            </a>
+          </div>
         </div>
 
         <!-- Review Section -->
@@ -86,12 +95,12 @@ function addToCart() {
           {{ props.product?.description }}
         </p>
 
-        <p class="mt-8 text-3xl text-gray-900">
-          ${{ Number(props.product?.price || 0).toFixed(2) }}
-        </p>
+        <!-- Desktop Price + Add to Cart -->
+        <div class="mt-8 hidden lg:flex lg:flex-wrap lg:items-center lg:gap-6">
+          <p class="text-3xl font-semibold text-gray-900">
+            ${{ Number(props.product?.price || 0).toFixed(2) }}
+          </p>
 
-        <!-- Add to Cart Section (desktop only) -->
-        <div class="mt-8 hidden lg:flex lg:flex-wrap lg:gap-4">
           <button
             @click="addToCart"
             :disabled="adding"
@@ -108,7 +117,7 @@ function addToCart() {
           </a>
         </div>
 
-        <!-- Product Info -->
+        <!-- Product Info Sections -->
         <div class="mt-12 border-t border-gray-200 pt-8 space-y-10 text-gray-800">
           <div v-if="props.product?.formulated_for">
             <h3 class="text-xl font-serif text-gray-900 mb-3">Formulated For</h3>
