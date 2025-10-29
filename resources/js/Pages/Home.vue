@@ -91,7 +91,7 @@ import GuestLayout from '@/Layouts/GuestLayout.vue'
     <div class="relative z-10 text-center max-w-5xl mx-auto">
       <!-- Section Title -->
       <h2 class="text-3xl md:text-4xl font-serif mb-4 text-gray-900 tracking-wide">
-        Our Signature <span class="text-[#c6a664]">Serum</span>
+        Our <span class="text-[#c6a664]">Signature </span>
       </h2>
 
       <!-- Description -->
