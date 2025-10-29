@@ -56,13 +56,28 @@ function addToCart() {
     <section class="py-12 md:py-16 max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-14">
       <!-- LEFT SIDE -->
       <div>
+        <!-- Product Image -->
         <div
           class="aspect-square rounded-3xl bg-gray-100 overflow-hidden shadow-md bg-cover bg-center"
           :style="imageUrl ? { backgroundImage: `url(${imageUrl})` } : {}"
         ></div>
 
-        <!-- Reviews Section (Full) -->
-        <ReviewSection :product="props.product" :reviews="props.reviews" :user="user" class="mt-10" />
+        <!-- Add-to-Cart Section Below Image -->
+        <div class="mt-6 flex items-center justify-between border-t border-gray-200 pt-4">
+          <p class="text-2xl font-semibold text-gray-900">
+            ${{ Number(props.product?.price || 0).toFixed(2) }}
+          </p>
+          <button
+            @click="addToCart"
+            :disabled="adding"
+            class="px-6 py-2.5 bg-[#c6a664] text-white rounded-full shadow hover:bg-[#b49755] disabled:opacity-60 transition-all duration-300"
+          >
+            {{ adding ? 'Adding…' : 'Add to Cart' }}
+          </button>
+        </div>
+
+        <!-- Review Section -->
+        <ReviewSection :product="props.product" :reviews="props.reviews" :user="user" class="mt-8" />
       </div>
 
       <!-- RIGHT SIDE -->
@@ -91,30 +106,6 @@ function addToCart() {
         <p class="mt-6 text-gray-700 text-lg leading-relaxed">
           {{ props.product?.description }}
         </p>
-
-        <!-- Price + Buttons -->
-        <div class="mt-6">
-          <p class="text-3xl text-gray-900 font-semibold">
-            ${{ Number(props.product?.price || 0).toFixed(2) }}
-          </p>
-
-          <div class="mt-5 flex flex-wrap gap-4">
-            <button
-              @click="addToCart"
-              :disabled="adding"
-              class="px-6 py-2.5 bg-[#c6a664] text-white rounded-full shadow hover:bg-[#b49755] disabled:opacity-60 transition-all duration-300"
-            >
-              {{ adding ? 'Adding…' : 'Add to Cart' }}
-            </button>
-
-            <a
-              href="/products"
-              class="px-6 py-2.5 border border-gray-400 rounded-full hover:bg-gray-100 transition-all duration-300"
-            >
-              Back to Products
-            </a>
-          </div>
-        </div>
 
         <!-- Product Info Sections -->
         <div class="mt-10 border-t border-gray-200 pt-8 space-y-10 text-gray-800">
@@ -184,21 +175,5 @@ function addToCart() {
         </div>
       </div>
     </section>
-
-    <!-- 🛒 Sticky Add-to-Cart Bar (Mobile Only) -->
-    <div
-      class="lg:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md px-5 py-3 flex justify-between items-center"
-    >
-      <span class="text-lg font-semibold text-gray-900">
-        ${{ Number(props.product?.price || 0).toFixed(2) }}
-      </span>
-      <button
-        @click="addToCart"
-        :disabled="adding"
-        class="px-5 py-2 bg-[#c6a664] text-white rounded-full shadow hover:bg-[#b49755] disabled:opacity-60 transition-all duration-300"
-      >
-        {{ adding ? 'Adding…' : 'Add to Cart' }}
-      </button>
-    </div>
   </GuestLayout>
 </template>
