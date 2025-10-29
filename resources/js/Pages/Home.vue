@@ -18,8 +18,8 @@ import GuestLayout from '@/Layouts/GuestLayout.vue'
       </h1>
 
       <p class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto mb-8">
-        Discover skincare that unites the power of <span class="font-medium text-gray-900">silkworm sericin</span>
-        with modern science — for hydrated, radiant, and effortlessly smooth skin.
+        <span class="font-medium text-gray-900">Discover the secret to silk-soft, radiant skin.</span>
+        Glisq blends the natural power of sericin with modern innovation to deliver effortless hydration, a silky-smooth texture, and a youthful glow that lasts all day.
       </p>
 
       <div class="flex flex-wrap gap-4 justify-center">
@@ -52,10 +52,11 @@ import GuestLayout from '@/Layouts/GuestLayout.vue'
 
           <div class="flex flex-col md:block items-center md:items-start">
             <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-xl">
-              Our skincare philosophy is simple — pure, luxurious, and effective.
-              Each GLISQ product is powered by
-              <span class="font-medium text-gray-900">silkworm sericin</span>,
-              a natural protein that enhances moisture retention and promotes silky, youthful skin.
+              At <span class="font-medium text-gray-900">GLISQ,</span>
+              we believe skincare should feel as pure and luxurious as silk. Our formulas are infused with natural sericin protein — a unique compound from silkworms that helps nourish, hydrate, strengthen and renew your skin barrier.
+            </p>
+            <p class="text-gray-700 mt-2 text-base md:text-lg leading-relaxed max-w-xl">
+              Backed by modern innovation and crafted with ethical precision, each GLISQ product delivers visible radiance, silky softness, and lasting balance — for skin that truly glows from within.
             </p>
 
             <!-- Image (same column on small screens) -->

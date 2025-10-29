@@ -47,8 +47,11 @@ const team = [
     <section class="text-center py-20 bg-[#f9f5f0] text-gray-800">
       <h1 class="text-4xl md:text-5xl font-serif mb-4">About GLISQ</h1>
       <p class="max-w-2xl mx-auto text-lg leading-relaxed">
-        GLISQ is a Cambodian startup transforming silk protein into modern skincare innovation.  
-        Our mission is to create effective, sustainable, and accessible beauty — powered by nature and research.
+        GLISQ is redefining the Cambodian skincare brand dedicated to transforming the power of silk into modern skincare innovation. Using silk sericin protein, a rare silk-derived ingredient, we create products that hydrate, protect, and renew your skin — naturally.
+      </p>
+
+      <p class="max-w-2xl mt-2 mx-auto text-lg leading-relaxed">
+          Our mission is to craft effective, sustainable, and accessible skincare that celebrates both the strength and softness within you.
       </p>
     </section>
 
@@ -60,11 +63,13 @@ const team = [
       <div>
         <h2 class="text-3xl font-serif mb-4 text-gray-900">Our Story</h2>
         <p class="text-gray-600 leading-relaxed mb-4">
-          Founded by a group of young innovators, GLISQ started as a university project exploring the natural benefits of silk.  
-          Today, it stands as a growing brand dedicated to ethical skincare and scientific development.
+          Born from curiosity and a love for nature, GLISQ was founded by a team of young Cambodian innovators inspired by the wonders of silk.
         </p>
         <p class="text-gray-600 leading-relaxed">
-          We believe skincare should be both high-performing and responsible — combining Cambodian craftsmanship with global standards.
+          From a humble university project to a purpose-driven brand, we’ve stayed true to one belief — that skincare can be both high-performing and kind.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          At GLISQ, we combine local craftsmanship, clean ingredients, and scientific precision to deliver beauty that feels authentic and sustainable.
         </p>
       </div>
     </section>
@@ -88,15 +93,6 @@ const team = [
           <p class="mt-3 text-gray-500 text-sm leading-relaxed">{{ member.bio }}</p>
         </div>
       </div>
-    </section>
-
-    <!-- Mission Section -->
-    <section class="py-20 bg-white text-center">
-      <h2 class="text-3xl font-serif mb-6 text-gray-900">Our Mission</h2>
-      <p class="max-w-2xl mx-auto text-gray-600 text-lg leading-relaxed">
-        To elevate Cambodian skincare by merging natural silk proteins with scientific expertise —  
-        offering safe, effective, and sustainable products for everyone.
-      </p>
     </section>
   </GuestLayout>
 </template>
