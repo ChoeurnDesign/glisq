@@ -4,9 +4,11 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Illuminate\Support\Facades\Auth;
 
 class HandleInertiaRequests extends Middleware
 {
+
     protected $rootView = 'app';
 
     public function version(Request $request): ?string
@@ -16,29 +18,33 @@ class HandleInertiaRequests extends Middleware
 
     public function share(Request $request): array
     {
-        $user = $request->user();
+        $user = Auth::user();
+
         $roles = [];
         if ($user && method_exists($user, 'getRoleNames')) {
             $roles = $user->getRoleNames()->toArray();
         }
 
-        $isAdmin = false;
-        if ($user) {
-            if (method_exists($user, 'hasRole') && $user->hasRole('admin')) $isAdmin = true;
-            elseif (property_exists($user, 'is_admin') && $user->is_admin) $isAdmin = true;
-        }
+        $isAdmin = $user && (
+            (method_exists($user, 'hasRole') && $user->hasRole('admin')) ||
+            (property_exists($user, 'is_admin') && $user->is_admin)
+        );
 
-        return [
-            ...parent::share($request),
+        return array_merge(parent::share($request), [
             'auth' => [
-                'user' => $user,
+                'user' => $user ? [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                ] : null,
                 'roles' => $roles,
                 'isAdmin' => $isAdmin,
             ],
             'flash' => [
-                'success' => fn () => $request->session()->get('success'),
-                'error'   => fn () => $request->session()->get('error'),
+                'success' => fn() => $request->session()->get('success'),
+                'error'   => fn() => $request->session()->get('error'),
             ],
-        ];
+            'cart' => fn() => array_values(session()->get('cart', [])),
+        ]);
     }
 }
