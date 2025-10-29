@@ -1,97 +1,152 @@
 <script setup>
 import GuestLayout from '@/Layouts/GuestLayout.vue'
-defineProps({ tagline: String })
 </script>
 
 <template>
   <GuestLayout>
-    <!-- Hero Section -->
-    <section
-      class="relative min-h-screen flex flex-col justify-center bg-[#f9f5f0] text-gray-800 px-6 md:px-16 overflow-hidden"
-    >
-      <!-- Full-width Banner Background (Behind All Content) -->
-      <div
-        class="absolute top-0 left-0 w-full h-[46%] bg-cover bg-center z-10"
-        style="background-image: url('/images/banner.png');"
-      >
-    </div> 
-      
+  <!-- 🌸 HERO SECTION -->
+  <section
+    class="relative flex flex-col justify-center items-center text-gray-800 bg-gradient-to-b from-[#faf8f5] via-[#fdfcf9] to-[#f7f4ef] overflow-hidden py-16"
+  >
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-b from-[#fff9ef] via-[#f9f4e8] to-transparent opacity-70 rounded-full blur-3xl"
+    ></div>
 
-      <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
-        <!-- Left Text Content -->
-        <div>
-          <div class="flex gap-4 mb-28 mt-8">
-            <a href="/products" class="px-8 py-3 rounded-full bg-gray-800 text-white hover:bg-[#c6a664] hover:text-white transition duration-200 shadow-md">
-              Shop Now
-            </a>
-            
-            <a href="/about" class="px-8 py-3 rounded-full border border-gray-900 text-gray-900 hover:bg-gray-500 hover:text-white transition-all duration-200">
-              Learn More
-            </a>
-            <a href="/skin-quiz" class="px-6 py-3 border border-[#c6a664] text-[#c6a664] rounded-full hover:bg-[#c6a664]/10 hover:shadow-sm hover:-translate-y-[1px] transition-all duration-300">
-              Skin Quiz
-            </a>
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-serif text-gray-900 leading-tight mb-6">
+        Soft Like Silk, <span class="text-[#c6a664]">Strong Like You.</span>
+      </h1>
+
+      <p class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto mb-8">
+        Discover skincare that unites the power of <span class="font-medium text-gray-900">silkworm sericin</span>
+        with modern science — for hydrated, radiant, and effortlessly smooth skin.
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a
+          href="/products"
+          class="px-8 py-3 rounded-full bg-gray-800 text-white hover:bg-[#c6a664] hover:text-white transition duration-200 shadow-md"
+        >
+          Shop Now
+        </a>
+        <a
+          href="/about"
+          class="border border-gray-800 text-gray-900 px-8 py-3 rounded-full hover:bg-gray-800 hover:text-white transition duration-200"
+        >
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+   <!-- 💎 WHY CHOOSE GLISQ -->
+    <section class="bg-white py-16 px-6 md:px-16">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+      >
+        <!-- Left Text -->
+        <div class="text-left md:text-left">
+          <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-6 text-center md:text-left">
+            Why Choose <span class="text-[#c6a664]">GLISQ</span>
+          </h2>
+
+          <div class="flex flex-col md:block items-center md:items-start">
+            <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-xl">
+              Our skincare philosophy is simple — pure, luxurious, and effective.
+              Each GLISQ product is powered by
+              <span class="font-medium text-gray-900">silkworm sericin</span>,
+              a natural protein that enhances moisture retention and promotes silky, youthful skin.
+            </p>
+
+            <!-- Image (same column on small screens) -->
+            <div class="mt-6 flex justify-center md:hidden">
+              <img
+                src="/images/serum.png"
+                alt="GLISQ Serum"
+                class="w-[220px] sm:w-[260px] rounded-2xl shadow-lg object-contain"
+              />
+            </div>
           </div>
-          <h1
-            class="text-3xl md:text-5xl font-serif text-gray-900 leading-snug tracking-tight"
-          >
-            <span class="block">
-              Soft Like Silk,
-              <span class="text-[#c6a664]">Strong Like You.</span>
-            </span>
-          </h1>
-          <p
-            class="text-[1.05rem] mt-6 md:text-lg text-gray-700 leading-relaxed border-l-4 border-[#c6a664] pl-4 italic"
-          >
-            Discover the beauty of silk-inspired skincare.  
-            <span class="font-medium text-gray-900">GLISQ</span>
-            fuses the purity of silkworm sericin with 
-            modern science to unveil skin that glows with natural radiance — hydrated, soft, and resilient.
-          </p>
         </div>
 
-        <!-- Right Image -->
-        <div class="relative flex justify-center items-center">
-          <div
-            class="w-full max-w-[430px] aspect-square rounded-3xl shadow-lg overflow-hidden bg-cover bg-center"
-            style="background-image: url('/images/serum.png');"
-          ></div>
-
+        <!-- Right Image (only visible on desktop) -->
+        <div class="hidden md:flex justify-end">
+          <img
+            src="/images/serum.png"
+            alt="GLISQ Serum"
+            class="w-[300px] md:w-[340px] rounded-2xl shadow-lg object-contain"
+          />
         </div>
       </div>
     </section>
 
-    <!-- Highlight Section -->
-    <section class="py-4 text-center bg-white">
-      <h2 class="text-3xl md:text-4xl font-serif text-gray-900 mb-8 tracking-wide">
-        Why Choose <span class="text-[#c6a664]">GLISQ</span>
+    <!-- ✨ PRODUCT HIGHLIGHT -->
+  <section class="relative bg-[#f9f5f0] py-20 px-6 overflow-hidden">
+    <!-- Soft gradient background glow -->
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-b from-[#fff8ed] via-[#f8f3e8] to-transparent opacity-60 rounded-full blur-3xl"
+    ></div>
+
+    <div class="relative z-10 text-center max-w-5xl mx-auto">
+      <!-- Section Title -->
+      <h2 class="text-3xl md:text-4xl font-serif mb-4 text-gray-900 tracking-wide">
+        Our Signature <span class="text-[#c6a664]">Serum</span>
       </h2>
-      <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed text-lg">
-        At <span class="font-medium text-gray-900">GLISQ</span>, we believe that skincare should feel as 
-        pure and luxurious as silk. Our formulas are infused with natural <span class="text-gray-800 font-medium">sericin protein</span> — 
-        a unique compound from silkworms that helps nourish, hydrate, and renew your skin barrier.
+
+      <!-- Description -->
+      <p class="text-gray-700 max-w-2xl mx-auto mb-14 text-lg leading-relaxed">
+        Experience the GLISQ 2-in-1 Silk Sericin Serum & Moisturizer — expertly crafted to infuse your skin with deep hydration, lasting smoothness, and radiant vitality.
       </p>
-      <p class="mt-5 text-gray-600 max-w-3xl mx-auto leading-relaxed text-lg">
-        Backed by modern science and crafted with ethical precision, each GLISQ product is designed 
-        to deliver visible radiance, silky softness, and long-lasting balance — for skin that truly glows from within.
-      </p>
-    </section>
+
+      <!-- Benefit Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Card 1 -->
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-md p-8 hover:shadow-lg transition duration-300">
+          <div class="mb-4 text-[#c6a664] text-2xl">💧</div>
+          <h3 class="font-semibold text-xl mb-2 text-gray-900">Hydration Boost</h3>
+          <p class="text-gray-600 text-base leading-relaxed">
+            Instantly replenishes and locks in moisture, giving your skin a supple, smooth, and silky feel.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-md p-8 hover:shadow-lg transition duration-300">
+          <div class="mb-4 text-[#c6a664] text-2xl">🌿</div>
+          <h3 class="font-semibold text-xl mb-2 text-gray-900">Elasticity Repair</h3>
+          <p class="text-gray-600 text-base leading-relaxed">
+            Improves skin firmness, smooths fine lines, and promotes a youthful, lifted look.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-md p-8 hover:shadow-lg transition duration-300">
+          <div class="mb-4 text-[#c6a664] text-2xl">✨</div>
+          <h3 class="font-semibold text-xl mb-2 text-gray-900">Natural Radiance</h3>
+          <p class="text-gray-600 text-base leading-relaxed">
+            Brightens dull tones, evens out complexion, and restores your skin’s healthy glow.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
   </GuestLayout>
 </template>
 
 <style scoped>
-/* Smooth fade-in for banner */
-section > div.absolute {
-  animation: fadeIn 1.2s ease-in-out;
+section:first-of-type {
+  animation: fadeInHero 1.2s ease-in-out;
 }
-@keyframes fadeIn {
+
+@keyframes fadeInHero {
   from {
     opacity: 0;
-    transform: scale(1.02);
+    transform: translateY(25px);
   }
   to {
-    opacity: 0.9;
-    transform: scale(1);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
+
+

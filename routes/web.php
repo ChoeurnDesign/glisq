@@ -14,7 +14,11 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Auth\GoogleController;
 
-
+/*
+|--------------------------------------------------------------------------
+| Public pages
+|--------------------------------------------------------------------------
+*/
 Route::get('/', fn () => Inertia::render('Home'))->name('home');
 
 Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('google.redirect');
@@ -32,13 +36,40 @@ Route::get('/privacy-policy', fn () => Inertia::render('PrivacyPolicy'))->name('
 Route::get('/terms', fn () => Inertia::render('Terms'))->name('terms');
 Route::get('/skin-quiz', fn () => Inertia::render('SkinQuiz'))->name('skin.quiz');
 
-// 🧴 Product routes
+/*
+|--------------------------------------------------------------------------
+| Products
+|--------------------------------------------------------------------------
+*/
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{product:slug}', [ProductController::class, 'show'])->name('products.show');
 
-// 📝 Review route (allow all users)
+/*
+|--------------------------------------------------------------------------
+| Reviews
+|--------------------------------------------------------------------------
+*/
 Route::post('/products/{product:slug}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
+/*
+|--------------------------------------------------------------------------
+| Cart
+|--------------------------------------------------------------------------
+*/
+Route::get('/cart', fn () => back())->name('cart.index');
+
+Route::prefix('cart')->group(function () {
+    Route::post('/add/{product}', [CartController::class, 'add'])->name('cart.add');
+    Route::patch('/update/{id}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::delete('/clear', [CartController::class, 'clear'])->name('cart.clear');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Authenticated user profile
+|--------------------------------------------------------------------------
+*/
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', function () {
         return Inertia::render('Profile', ['user' => Auth::user()]);
@@ -46,14 +77,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-    Route::post('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
-    Route::patch('cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
-    Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
-    Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Admin
+|--------------------------------------------------------------------------
+*/
 Route::middleware(['auth', 'verified', 'admin'])
     ->prefix('admin')
     ->name('admin.')
@@ -62,5 +92,14 @@ Route::middleware(['auth', 'verified', 'admin'])
         Route::resource('products', AdminProductController::class)->except(['show']);
         Route::resource('users', AdminUserController::class)->only(['index', 'update', 'destroy']);
     });
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard Route (fixes "Route [dashboard] not defined" error)
+|--------------------------------------------------------------------------
+*/
+Route::get('/dashboard', function () {
+    return redirect()->route('admin.index');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__ . '/auth.php';

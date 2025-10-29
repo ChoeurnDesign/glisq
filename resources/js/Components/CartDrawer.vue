@@ -9,6 +9,14 @@ const total = computed(() =>
   cart.value.reduce((sum, i) => sum + i.price * i.quantity, 0).toFixed(2)
 )
 
+function getImageUrl(path) {
+  if (!path) return '/images/placeholder.png'
+  if (path.startsWith('http')) return path
+  if (path.startsWith('images/') || path.startsWith('/images/')) return `/${path.replace(/^\/?/, '')}`
+  if (path.startsWith('storage/') || path.startsWith('/storage/')) return `/${path.replace(/^\/?/, '')}`
+  return `/storage/${path}`
+}
+
 function removeItem(id) {
   router.delete(route('cart.remove', id), { preserveScroll: true })
 }
@@ -30,17 +38,14 @@ function checkout() {
 <template>
   <transition name="slide-cart">
     <div v-if="true">
-      <!-- Overlay -->
       <div
         class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 transition-opacity"
         @click="$emit('close')"
       ></div>
 
-      <!-- Drawer -->
       <div
         class="fixed top-0 right-0 h-screen w-80 sm:w-96 bg-[#faf7f2] shadow-2xl z-[60] flex flex-col border border-gray-300 rounded-l-xl"
       >
-        <!-- Header -->
         <div
           class="flex items-center justify-between p-5 border-b border-gray-300 bg-[#f5efe6] flex-shrink-0"
         >
@@ -55,7 +60,6 @@ function checkout() {
           </button>
         </div>
 
-        <!-- Cart Items -->
         <div class="flex-1 overflow-y-auto p-5 space-y-4">
           <div
             v-for="item in cart"
@@ -63,21 +67,18 @@ function checkout() {
             class="flex items-center gap-4 border border-gray-300 rounded-lg p-2"
           >
             <img
-              :src="`/storage/${item.image_path}`"
+              :src="getImageUrl(item.image_path)"
               alt="Product"
               class="w-16 h-auto rounded-lg object-cover bg-gray-100 border border-gray-200"
             />
 
             <div class="flex-1">
               <p class="font-medium text-gray-900">{{ item.name }}</p>
-
-              <!-- price same tone as icons -->
               <p class="text-sm text-[#8a826b] font-medium">
                 ${{ Number(item.price).toFixed(2) }}
               </p>
 
               <div class="flex items-center justify-between mt-2">
-                <!-- Quantity Controls -->
                 <div class="flex items-center gap-2">
                   <button
                     @click="updateQuantity(item, item.quantity - 1)"
@@ -98,7 +99,6 @@ function checkout() {
                   </button>
                 </div>
 
-                <!-- Remove -->
                 <button
                   @click="removeItem(item.id)"
                   class="text-[#8a826b] hover:text-[#c6a664] transition"
@@ -114,7 +114,6 @@ function checkout() {
           </p>
         </div>
 
-        <!-- Footer -->
         <div class="p-5 border-t border-gray-300 bg-[#f5efe6] flex-shrink-0">
           <div class="flex items-center justify-between mb-3">
             <span class="text-gray-700 font-medium">Total</span>
@@ -143,7 +142,6 @@ function checkout() {
 </template>
 
 <style scoped>
-/* ✨ Smooth slide-in animation */
 .slide-cart-enter-active,
 .slide-cart-leave-active {
   transition: transform 0.4s ease, opacity 0.4s ease;
@@ -153,8 +151,6 @@ function checkout() {
   transform: translateX(100%);
   opacity: 0;
 }
-
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
