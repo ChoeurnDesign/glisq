@@ -82,54 +82,53 @@ import { BeakerIcon, SparklesIcon, SunIcon } from '@heroicons/vue/24/outline'
       </div>
     </section>
 
-    <!-- 🌸 WHY CHOOSE GLISQ -->
-  <section class="bg-white py-16 px-6 md:px-16">
+    <!-- ✨ PRODUCT HIGHLIGHT -->
+  <section class="relative bg-[#f9f5f0] py-20 px-6 overflow-hidden">
+    <!-- Soft gradient background glow -->
     <div
-      class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-    >
-      <!-- 🩵 Left Text -->
-      <div class="text-center md:text-left">
-        <h2
-          class="text-3xl md:text-4xl font-serif text-gray-900 mb-6 tracking-wide"
-        >
-          Why Choose <span class="text-[#c6a664]">GLISQ</span>
-        </h2>
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-b from-[#fff8ed] via-[#f8f3e8] to-transparent opacity-60 rounded-full blur-3xl"
+    ></div>
 
-        <p
-          class="text-gray-700 text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0"
-        >
-          At <span class="font-medium text-gray-900">GLISQ,</span> we believe
-          skincare should feel as pure and luxurious as silk. Our formulas are
-          powered by <span class="font-medium">silkworm sericin</span> — a natural
-          protein that deeply nourishes, hydrates, and strengthens your skin
-          barrier while enhancing its youthful glow.
-        </p>
+    <div class="relative z-10 text-center max-w-5xl mx-auto">
+      <!-- Section Title -->
+      <h2 class="text-3xl md:text-4xl font-serif mb-12 text-gray-900 tracking-wide">
+        Our <span class="text-[#c6a664]">Signature</span>
+      </h2>
 
-        <p
-          class="text-gray-700 mt-4 text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0"
+      <!-- Benefit Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Card 1 -->
+        <div
+          class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-md p-8 hover:shadow-lg transition duration-300"
         >
-          Guided by science and crafted with ethical precision, every GLISQ
-          product delivers visible radiance, silky softness, and lasting balance —
-          revealing your skin’s natural brilliance.
-        </p>
-
-        <!-- Image (same column on mobile) -->
-        <div class="mt-8 flex justify-center md:hidden">
-          <img
-            src="/images/serum.png"
-            alt="GLISQ Serum"
-            class="w-[240px] sm:w-[260px] rounded-2xl shadow-md object-contain"
-          />
+          <BeakerIcon class="w-10 h-10 text-[#c6a664] mb-4 mx-auto" />
+          <h3 class="font-semibold text-xl mb-2 text-gray-900">Hydration Boost</h3>
+          <p class="text-gray-600 text-base leading-relaxed">
+            Replenishes and locks in moisture, giving your skin a soft, silky feel.
+          </p>
         </div>
-      </div>
 
-      <!-- 💧 Right Image (desktop only) -->
-      <div class="hidden md:flex justify-end">
-        <img
-          src="/images/serum.png"
-          alt="GLISQ Serum"
-          class="w-[340px] lg:w-[380px] rounded-2xl shadow-md object-contain"
-        />
+        <!-- Card 2 -->
+        <div
+          class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-md p-8 hover:shadow-lg transition duration-300"
+        >
+          <SparklesIcon class="w-10 h-10 text-[#c6a664] mb-4 mx-auto" />
+          <h3 class="font-semibold text-xl mb-2 text-gray-900">Elasticity Repair</h3>
+          <p class="text-gray-600 text-base leading-relaxed">
+            Smooths fine lines and improves firmness for a youthful, lifted look.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-md p-8 hover:shadow-lg transition duration-300"
+        >
+          <SunIcon class="w-10 h-10 text-[#c6a664] mb-4 mx-auto" />
+          <h3 class="font-semibold text-xl mb-2 text-gray-900">Natural Radiance</h3>
+          <p class="text-gray-600 text-base leading-relaxed">
+            Brightens dull skin and restores a healthy, luminous glow.
+          </p>
+        </div>
       </div>
     </div>
   </section>
