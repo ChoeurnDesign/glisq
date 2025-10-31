@@ -44,7 +44,7 @@ class ProductController extends Controller
         $product = Product::where('slug', $slug)
             ->where('is_published', true)
             ->with([
-                'reviews' => fn($q) => $q->latest(), // newest first
+                'reviews' => fn($q) => $q->with('user')->latest(), // 👈 include reviewer info
             ])
             ->firstOrFail([
                 'id',
