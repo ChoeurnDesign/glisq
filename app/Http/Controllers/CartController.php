@@ -12,9 +12,7 @@ class CartController extends Controller
     {
         $cart = session()->get('cart', []);
 
-        $total = collect($cart)->reduce(function ($sum, $item) {
-            return $sum + ($item['price'] * $item['quantity']);
-        }, 0);
+        $total = collect($cart)->reduce(fn($sum, $item) => $sum + ($item['price'] * $item['quantity']), 0);
 
         return Inertia::render('Cart/Index', [
             'cart' => array_values($cart),
@@ -58,7 +56,7 @@ class CartController extends Controller
             session()->put('cart', $cart);
         }
 
-        return back()->with('success', 'Cart updated');
+        return back()->with('success', 'Cart updated.');
     }
 
     public function remove($id)
