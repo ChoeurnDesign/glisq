@@ -13,8 +13,9 @@
       </div>
 
       <div class="col-span-2">
-        <div class="max-w-md mx-auto md:max-w-none md:mx-0">
-          <div class="grid grid-cols-2 gap-8 text-left">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 justify-items-center">
+            <!-- Quick Links -->
             <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
               <ul class="space-y-2 text-sm mb-6">
@@ -24,7 +25,7 @@
                 <li><a href="/contact" class="hover:text-[#c6a664] transition">Contact</a></li>
               </ul>
 
-              <div class="flex justify-start gap-5 mt-2">
+              <div class="flex justify-center gap-5 mt-2">
                 <a href="#" aria-label="Instagram" class="hover:opacity-80">
                   <img src="/images/social-icon/instagram.png" alt="Instagram" class="h-6 w-6" />
                 </a>
@@ -37,7 +38,8 @@
               </div>
             </div>
 
-            <div class="text-left">
+            <!-- Customer Care -->
+            <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-4">Customer Care</h3>
               <ul class="space-y-2 text-sm">
                 <li><a href="/faq" class="hover:text-[#c6a664] transition">FAQ</a></li>
@@ -52,34 +54,67 @@
       </div>
     </div>
 
-    <div class="border-t border-gray-200 bg-[#f1f0ed] px-6 py-8">
+    <div class="border-t border-gray-200 bg-[#f1f0ed] px-4 sm:px-6 py-8">
       <div class="max-w-6xl mx-auto text-center space-y-6">
-        <div class="flex flex-wrap justify-center gap-10 items-center">
-          <div>
-            <p class="text-sm font-medium mb-1 text-gray-700">Implemented by</p>
-            <div class="flex justify-center gap-3">
-              <img src="/images/sponsor/wonder-logo.png" alt="Wonders" class="h-6 object-contain" />
-              <img src="/images/sponsor/nicc-logo.png" alt="NICC" class="h-4 object-contain" />
+        <!-- Sponsor Logos Row -->
+        <div
+          class="flex flex-nowrap justify-center items-center gap-8 sm:gap-10 overflow-x-auto no-scrollbar"
+        >
+          <!-- Implemented by -->
+          <div class="flex flex-col items-center flex-shrink-0">
+            <p class="text-xs sm:text-sm font-medium mb-1 text-gray-700 whitespace-nowrap">
+              Implemented by
+            </p>
+            <div class="flex justify-center items-center gap-3">
+              <img
+                src="/images/sponsor/wonder-logo.png"
+                alt="Wonders"
+                class="h-5 sm:h-6 object-contain transition-all duration-300"
+              />
+              <img
+                src="/images/sponsor/nicc-logo.png"
+                alt="NICC"
+                class="h-4 sm:h-5 object-contain transition-all duration-300"
+              />
             </div>
           </div>
-          <div>
-            <p class="text-sm font-medium mb-1 text-gray-700">Co-funded by</p>
-            <img src="/images/sponsor/childfund-korea.png" alt="ChildFund" class="h-7 mx-auto object-contain" />
+
+          <!-- Co-funded by -->
+          <div class="flex flex-col items-center flex-shrink-0">
+            <p class="text-xs sm:text-sm font-medium mb-1 text-gray-700 whitespace-nowrap">
+              Co-funded by
+            </p>
+            <img
+              src="/images/sponsor/childfund-korea.png"
+              alt="ChildFund"
+              class="h-6 sm:h-7 object-contain transition-all duration-300"
+            />
           </div>
-          <div>
-            <p class="text-sm font-medium mb-1 text-gray-700">Funded by</p>
-            <img src="/images/sponsor/koica-logo.png" alt="KOICA" class="h-6 mx-auto object-contain" />
+
+          <!-- Funded by -->
+          <div class="flex flex-col items-center flex-shrink-0">
+            <p class="text-xs sm:text-sm font-medium mb-1 text-gray-700 whitespace-nowrap">
+              Funded by
+            </p>
+            <img
+              src="/images/sponsor/koica-logo.png"
+              alt="KOICA"
+              class="h-5 sm:h-6 object-contain transition-all duration-300"
+            />
           </div>
         </div>
+
+        <!-- Dynamic Entrepreneur Spark -->
         <div>
           <img
             src="/images/sponsor/dynamic.png"
             alt="Dynamic Entrepreneur Spark"
-            class="h-10 mx-auto object-contain"
+            class="h-9 sm:h-10 mx-auto object-contain transition-all duration-300"
           />
         </div>
       </div>
     </div>
+
 
     <div class="border-t border-gray-300 bg-[#f5f4f0] py-5 px-6">
       <div

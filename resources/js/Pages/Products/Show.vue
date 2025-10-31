@@ -135,12 +135,14 @@ function addToCart() {
             <h3 class="text-xl font-serif text-gray-900 mb-3">Key Ingredients</h3>
             <ul class="space-y-2">
               <li
-                v-for="(ing, i) in (props.product.key_ingredients || '').split('\n').filter(Boolean)"
+                v-for="(item, i) in (props.product.key_ingredients || '').split('\n').filter(Boolean)"
                 :key="i"
-                class="flex items-start gap-2"
+                class="flex items-start gap-3"
               >
-                <CheckCircleIcon class="w-5 h-5 text-[#c6a664] mt-1" />
-                <span>{{ ing }}</span>
+                <div class="flex-shrink-0 w-6 h-6 flex items-center justify-center mt-1">
+                  <CheckCircleIcon class="w-5 h-5 text-[#c6a664]" />
+                </div>
+                <span class="text-gray-700 leading-relaxed">{{ item }}</span>
               </li>
             </ul>
           </div>

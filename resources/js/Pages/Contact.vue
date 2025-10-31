@@ -56,6 +56,9 @@ import GuestLayout from '@/Layouts/GuestLayout.vue'
         <p class="text-sm text-gray-500">
           We typically reply within 1–2 business days.
         </p>
+        <p class="text-sm text-gray-500">
+          Phone: +855 70 229 710 | Email: chunchoeurn99@gmail.com
+        </p>
       </div>
     </section>
   </GuestLayout>

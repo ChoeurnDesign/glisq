@@ -121,28 +121,42 @@ function submitReview() {
         :key="index"
         class="bg-white p-5 rounded-2xl shadow border border-gray-100"
       >
+        <!-- Reviewer Info -->
         <div class="flex justify-between items-center mb-2">
           <div>
-            <h4 class="font-semibold text-lg text-gray-900">{{ review.name }}</h4>
-            <div class="flex mt-1">
+            <!-- ✅ Reviewer Name -->
+            <h3 class="font-semibold text-lg text-gray-900">
+              {{ review.user?.name || review.name || 'Anonymous' }}
+            </h3>
+
+            <!-- ✅ Star Rating -->
+            <div class="flex mt-1 text-[#c6a664] text-sm">
               <component
                 v-for="i in 5"
                 :key="i"
                 :is="i <= review.rating ? StarSolid : StarOutline"
                 class="h-5 w-5"
                 :class="i <= review.rating 
-                ? 'text-[#c6a664]' 
-                : 'text-gray-300 stroke-gray-400 stroke-[1]'"
+                  ? 'text-[#c6a664]' 
+                  : 'text-gray-300 stroke-gray-400 stroke-[1]'"
               />
             </div>
           </div>
+
+          <!-- ✅ Review Date -->
           <span class="text-sm text-gray-400">
             {{ new Date(review.created_at).toLocaleDateString() }}
           </span>
         </div>
-        <p class="text-gray-700">{{ review.comment }}</p>
+
+        <!-- ✅ Review Comment -->
+        <p class="text-gray-700 leading-relaxed">
+          {{ review.comment }}
+        </p>
       </div>
     </div>
+
+    <!-- No Reviews Yet -->
     <p v-else class="text-center text-gray-500 italic mt-6">
       No reviews yet. Be the first to share your thoughts!
     </p>

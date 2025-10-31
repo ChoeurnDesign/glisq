@@ -58,7 +58,7 @@ const team = [
     <!-- Story Section -->
     <section class="grid md:grid-cols-2 gap-10 items-center py-20 px-8 bg-white">
       <div>
-        <img src="/images/our_story.png" alt="GLISQ Story" class="rounded-3xl shadow-lg" />
+        <img src="/images/our_story.png" alt="GLISQ Story" class="w-[240px] sm:w-[280px] rounded-2xl shadow-lg object-contain" />
       </div>
       <div>
         <h2 class="text-3xl font-serif mb-4 text-gray-900">Our Story</h2>

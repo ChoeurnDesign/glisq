@@ -65,7 +65,7 @@ import { BeakerIcon, SparklesIcon, SunIcon } from '@heroicons/vue/24/outline'
               <img
                 src="/images/serum.png"
                 alt="GLISQ Serum"
-                class="w-[220px] sm:w-[260px] rounded-2xl shadow-lg object-contain"
+                class="w-[240px] sm:w-[280px] rounded-2xl shadow-lg object-contain"
               />
             </div>
           </div>
