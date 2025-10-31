@@ -26,9 +26,11 @@ const adding = ref(false)
 function addToCart() {
   if (!props.product?.id) return
   adding.value = true
-  const url = `/cart/add/${props.product.id}`
+
+  const userLoggedIn = !!user.value
+
   router.post(
-    url,
+    `/cart/add/${props.product.id}`,
     {
       id: props.product.id,
       name: props.product.name,
@@ -38,10 +40,19 @@ function addToCart() {
     },
     {
       preserveScroll: true,
+      onSuccess: () => {
+        // optional — console message or UI feedback
+        if (!userLoggedIn) {
+          console.log('Added to guest cart (session)')
+        } else {
+          console.log('Added to user cart (database)')
+        }
+      },
       onFinish: () => (adding.value = false),
     }
   )
 }
+
 </script>
 
 <template>

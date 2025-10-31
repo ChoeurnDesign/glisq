@@ -157,5 +157,5 @@ function checkout() {
 ::-webkit-scrollbar-thumb {
   background-color: #d4c59d;
   border-radius: 10px;
-}
+}   
 </style>
