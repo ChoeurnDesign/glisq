@@ -55,47 +55,63 @@
     </div>
 
     <div class="border-t border-gray-200 bg-[#f1f0ed] px-4 sm:px-6 py-8">
-  <div class="max-w-6xl mx-auto text-center space-y-6">
+      <div class="max-w-6xl mx-auto text-center space-y-6">
+        <!-- Sponsor Logos Row -->
+        <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
+          <!-- Implemented by -->
+          <div class="flex flex-col items-center flex-shrink-0">
+            <p class="text-xs sm:text-sm font-medium mb-1 text-gray-700 whitespace-nowrap">
+              Implemented by
+            </p>
+            <div class="flex justify-center items-center gap-3">
+              <img
+                src="/images/sponsor/wonder-logo.png"
+                alt="Wonders"
+                class="h-5 sm:h-6 object-contain transition-all duration-300"
+              />
+              <img
+                src="/images/sponsor/nicc-logo.png"
+                alt="NICC"
+                class="h-4 sm:h-5 object-contain transition-all duration-300"
+              />
+            </div>
+          </div>
 
-    <!-- Sponsor Logos Row -->
-    <div
-      class="flex justify-center items-center gap-4 sm:gap-8 flex-wrap md:flex-nowrap"
-    >
-      <!-- Implemented by -->
-      <div class="flex flex-col items-center">
-        <p class="text-[11px] sm:text-sm font-medium mb-1 text-gray-700 whitespace-nowrap">
-          Implemented by
-        </p>
-        <div class="flex justify-center items-center gap-2">
-          <img src="/images/sponsor/wonder-logo.png" alt="Wonders" class="h-4 sm:h-5 object-contain" />
-          <img src="/images/sponsor/nicc-logo.png" alt="NICC" class="h-4 sm:h-5 object-contain" />
+          <!-- Co-funded by -->
+          <div class="flex flex-col items-center flex-shrink-0">
+            <p class="text-xs sm:text-sm font-medium mb-1 text-gray-700 whitespace-nowrap">
+              Co-funded by
+            </p>
+            <img
+              src="/images/sponsor/childfund-korea.png"
+              alt="ChildFund"
+              class="h-6 sm:h-7 object-contain transition-all duration-300"
+            />
+          </div>
+
+          <!-- Funded by -->
+          <div class="flex flex-col items-center flex-shrink-0">
+            <p class="text-xs sm:text-sm font-medium mb-1 text-gray-700 whitespace-nowrap">
+              Funded by
+            </p>
+            <img
+              src="/images/sponsor/koica-logo.png"
+              alt="KOICA"
+              class="h-5 sm:h-6 object-contain transition-all duration-300"
+            />
+          </div>
+        </div>
+
+        <!-- Dynamic Entrepreneur Spark -->
+        <div>
+          <img
+            src="/images/sponsor/dynamic.png"
+            alt="Dynamic Entrepreneur Spark"
+            class="h-9 sm:h-10 mx-auto object-contain transition-all duration-300"
+          />
         </div>
       </div>
-
-      <!-- Co-funded by -->
-      <div class="flex flex-col items-center">
-        <p class="text-[11px] sm:text-sm font-medium mb-1 text-gray-700 whitespace-nowrap">
-          Co-funded by
-        </p>
-        <img src="/images/sponsor/childfund-korea.png" alt="ChildFund" class="h-5 sm:h-6 object-contain" />
-      </div>
-
-      <!-- Funded by -->
-      <div class="flex flex-col items-center">
-        <p class="text-[11px] sm:text-sm font-medium mb-1 text-gray-700 whitespace-nowrap">
-          Funded by
-        </p>
-        <img src="/images/sponsor/koica-logo.png" alt="KOICA" class="h-5 sm:h-6 object-contain" />
-      </div>
-
-      <!-- Dynamic -->
-      <div class="flex flex-col items-center">
-        <img src="/images/sponsor/dynamic.png" alt="Dynamic Entrepreneur Spark" class="h-6 sm:h-8 object-contain" />
-      </div>
     </div>
-  </div>
-</div>
-
 
 
     <div class="border-t border-gray-300 bg-[#f5f4f0] py-5 px-6">
