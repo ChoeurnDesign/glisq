@@ -57,9 +57,7 @@
     <div class="border-t border-gray-200 bg-[#f1f0ed] px-4 sm:px-6 py-8">
       <div class="max-w-6xl mx-auto text-center space-y-6">
         <!-- Sponsor Logos Row -->
-        <div
-          class="flex flex-nowrap justify-center items-center gap-8 sm:gap-10 overflow-x-auto no-scrollbar"
-        >
+        <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
           <!-- Implemented by -->
           <div class="flex flex-col items-center flex-shrink-0">
             <p class="text-xs sm:text-sm font-medium mb-1 text-gray-700 whitespace-nowrap">
