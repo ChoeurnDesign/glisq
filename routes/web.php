@@ -58,7 +58,7 @@ Route::post('/products/{product:slug}/reviews', [ReviewController::class, 'store
 */
 Route::get('/cart', fn () => back())->name('cart.index');
 
-Route::prefix('cart')->group(function () {
+Route::middleware('auth')->prefix('cart')->group(function () {
     Route::post('/add/{product}', [CartController::class, 'add'])->name('cart.add');
     Route::patch('/update/{id}', [CartController::class, 'update'])->name('cart.update');
     Route::delete('/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
